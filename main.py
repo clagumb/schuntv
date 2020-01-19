@@ -1,3 +1,7 @@
+# Programm zur Verwaltung der Schülerunterlagen an bayerischen Berufsschulen
+# (c) by Claus Gumbmann
+# Das Programm ist un der Lizenz ???? veröffentlich
+
 import sqlite3
 from tkinter import Tk,mainloop,Label,Frame,BOTH,Pack,Grid,RIDGE,Scrollbar,RIGHT,LEFT,Text,END,YES,Canvas,N,E,NO,Y,X,Entry,NW,W,S,Checkbutton
 from tkinter import IntVar,DISABLED,FLAT,NORMAL,messagebox,GROOVE,Button,CENTER
