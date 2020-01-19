@@ -9,10 +9,8 @@ import win32com.client as win32
 #print(getpass.getuser())
 
 #Preprocessor-Sytle
-fobj_in = open("./config/studentspath.txt",encoding="ANSI")
 fobj_in = open("./config/studentspath.txt")
 DATEI = fobj_in.readline()
-fobj_in = open("./config/databasepath.txt",encoding="ANSI")
 fobj_in = open("./config/databasepath.txt")
 DB = fobj_in.readline()
 
@@ -98,7 +96,6 @@ von folgenden Schülern fehlen noch Unterlagen.<p>
 
     def render_line(self,Tk):
         bt = Button(content)
-        bt.configure(text="{}  ( {} Schüler )".format(self.klasse,self.anzahl), background="gray",relief=FLAT)
         bt.configure(text="{}  ( {} Schüler )".format(self.klasse,self.anzahl), background="deep sky blue",relief=FLAT)
         bt.pack()
         bt.bind('<Button-1>', self.mail_sender)
@@ -328,7 +325,6 @@ root.bind("<Control-Shift-MouseWheel>", superfast_OnMouseWheel)
 durchlauf = 0
 for i in range(0,len(classes)):
     content = Frame(canvas)
-    content.configure(background="gray")
     content.configure(background="deep sky blue")
     canvas.create_window(BREITE/2-26,durchlauf*20,window=content, anchor=N, width=BREITE)
 
@@ -347,7 +343,7 @@ for i in range(0,len(classes)):
             durchlauf += 1
         try:    
             if classes[i] == students[x + 1].klasse:
-                students[x+1].render_line1(canvas,durchlauf,"lightgray")
+                students[x+1].render_line1(canvas,durchlauf,"lavender")
                 durchlauf += 1
         except:
             pass
