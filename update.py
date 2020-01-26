@@ -1,12 +1,14 @@
 # Programm zur Verwaltung der Schülerunterlagen an bayerischen Berufsschulen
 # (c) by Claus Gumbmann
-# Das Programm ist un der Lizenz ???? veröffentlich.
+# Das Programm ist unter der Mozilla Public License (MPL) veröffentlich.
 
 # Dieses Programm fürht Änderungen an der Datenbank durch.
 # Bisher nicht enthaltene Schüler werden in die Datenbank aufgenommen.
 # Die Vorbelegung der Unterlagen ist 0, d.h. keine Unterlagen vorhanden. 
 # Schüler, bei der sich die Klasse geändert hat, werden aktuallisiert.
 # Schüler, die nicht mehr in der students.txt stehen, werden vollständig aus der Datenbank gelöscht.
+
+#Verwendete Drittsoftware: Python 3.8, SQLite3, pywin32 und pyXML
 
 print("Es geht los...")
 import sqlite3

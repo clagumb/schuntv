@@ -1,6 +1,8 @@
 # Programm zur Verwaltung der Schülerunterlagen an bayerischen Berufsschulen
 # (c) by Claus Gumbmann
-# Das Programm ist un der Lizenz ???? veröffentlich
+# Das Programm ist unter der Mozilla Public License (MPL) veröffentlich
+
+#Verwendete Drittsoftware: Python 3.8, SQLite3, pywin32 und pyXML
 
 import sqlite3
 from tkinter import Tk,mainloop,Label,Frame,BOTH,Pack,Grid,RIDGE,Scrollbar,RIGHT,LEFT,Text,END,YES,Canvas,N,E,NO,Y,X,Entry,NW,W,S,Checkbutton
