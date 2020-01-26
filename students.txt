@@ -1,1 +1,2 @@
+Klassenbezeichnung->Tab Nachname->Tab Vorname->Tab Geburtsdatum
 class	Mustermann	Max	19.01.2000
