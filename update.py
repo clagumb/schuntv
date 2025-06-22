@@ -53,7 +53,7 @@ except:
 
 #Verbidnung zur Textdatei hertsellen Klasse/tName/tVorname/tGeburtsdatum/t
 #restlichen Werte werden nicht benötigt
-fobj_in = open(DATEI,encoding="ANSI")
+fobj_in = open(DATEI,encoding="cp1252")
 
 #Datenbankverbindung öffnen
 conn = sqlite3.connect(DB)
@@ -90,10 +90,10 @@ for Zeile, line_txt in enumerate(fobj_in.readlines()):
     ary = line_txt.strip().split('\t') #Seperator in der Textdatei ist die Tab-Taste
     #ary[2] = ary[2].strip.split(' ')
     
-    if ary[0] not in AUSLASSUNGEN:
-        sql = "SELECT class, studentsid FROM students WHERE name='{}' AND vorname='{}' AND geb='{}'".format(ary[1],ary[2],ary[3])
+    if len(ary) == 4 and ary[0] not in AUSLASSUNGEN:
         db = conn.cursor()
-        db.execute(sql)
+        sql = "SELECT class, studentsid FROM students WHERE name=? AND vorname=? AND geb=?"
+        db.execute(sql, (ary[1], ary[2], ary[3]))
         row = db.fetchone()
         if row != None:
             stud_ids.append(row[1])

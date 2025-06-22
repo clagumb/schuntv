@@ -1,2 +1,4 @@
 Klassenbezeichnung->Tab Nachname->Tab Vorname->Tab Geburtsdatum
-class	Mustermann	Max	19.01.2000
+WEH10A	Mustermann	Max	19.01.2000
+WEH10A	Musterfrau	Petra	20.01.2000
+

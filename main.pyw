@@ -9,7 +9,11 @@ from tkinter import Tk,mainloop,Label,Frame,BOTH,Pack,Grid,RIDGE,Scrollbar,RIGHT
 from tkinter import IntVar,DISABLED,FLAT,NORMAL,messagebox,GROOVE,Button,CENTER
 from pathlib import Path
 import datetime
-import win32com.client as win32
+import platform
+if platform.system() == "Windows":
+    import win32com.client as win32
+else:
+    win32 = None
 import xml.etree.ElementTree as ET
 
 tree = ET.parse('./config/headers.xml')
@@ -96,11 +100,14 @@ von folgenden Schülern fehlen noch Unterlagen.<p>
         conn.close()
         #print(len(html))
         if len(html) > 360:
-            outlook = win32.Dispatch('outlook.application')
-            mail = outlook.CreateItem(0)
-            #mail.To = "" #recipient
-            mail.Subject = "Erinnerung an fehlende Schülerunterlagen" #subject
-            html += """
+            if win32:
+                outlook = win32.Dispatch("outlook.application")
+                mail = outlook.CreateItem(0)
+                #mail.To = "" #recipient
+                mail.Subject = "Erinnerung an fehlende Schülerunterlagen" #subject
+                html += """
+            else:
+                 messagebox.showinfo("Info", "E-Mail-Funktion steht unter Linux nicht zur Verfügung.")
             </table>
             <p>Vielen Dank für die Unterstützung.
             <P>Mit freundlichen Grüßen
@@ -424,7 +431,9 @@ root = Tk()
 root.geometry("{}x{}+0+0".format(BREITE,HÖHE))
 root.resizable(width=False,height=False)
 root.title("Copyright by Claus Gumbmann")
-root.iconbitmap(ICONPATH)
+import platform
+if platform.system() == "Windows":
+    root.iconbitmap(ICONPATH)
 root.configure(background="white")
 
 header = Frame(root)
